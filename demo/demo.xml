@@ -1,0 +1,106 @@
+<odoo>
+    <!-- Datos de ejemplo.
+        Van en este orden porque unos usan a otros.
+        ref="..." sirve para enlazar con otro registro. -->
+    <data noupdate="1">
+
+        <!-- Instalaciones -->
+        <record id="demo_instalacion_1" model="ebro_football_academy.instalacion">
+            <field name="nombreInstalacion">Campo Municipal Ebro</field>
+            <field name="tipo">f11</field>
+            <field name="ubicacion">Zaragoza</field>
+            <field name="capacidad">500</field>
+            <field name="superficie">7140</field>
+            <field name="descripcion">Campo de césped artificial con vestuarios.</field>
+        </record>
+        <record id="demo_instalacion_2" model="ebro_football_academy.instalacion">
+            <field name="nombreInstalacion">Gimnasio Ebro</field>
+            <field name="tipo">gimnasio</field>
+            <field name="ubicacion">Zaragoza</field>
+            <field name="capacidad">40</field>
+            <field name="superficie">250</field>
+            <field name="descripcion">Sala de preparación física.</field>
+        </record>
+
+        <!-- Entrenadores -->
+        <record id="demo_entrenador_1" model="ebro_football_academy.entrenador">
+            <field name="nombreEntrenador">Carlos</field>
+            <field name="apellidoEntrenador">Martínez Ruiz</field>
+            <field name="especialidadEntrenador">Preparación física</field>
+            <field name="telefonoEntrenador">600111222</field>
+            <field name="emailEntrenador">carlos@ebro.test</field>
+        </record>
+        <record id="demo_entrenador_2" model="ebro_football_academy.entrenador">
+            <field name="nombreEntrenador">Laura</field>
+            <field name="apellidoEntrenador">Gómez Pérez</field>
+            <field name="especialidadEntrenador">Porteros</field>
+            <field name="telefonoEntrenador">600333444</field>
+            <field name="emailEntrenador">laura@ebro.test</field>
+        </record>
+
+        <!-- Equipos -->
+        <record id="demo_equipo_1" model="ebro_football_academy.equipo">
+            <field name="nombreEquipo">Ebro Juvenil A</field>
+            <field name="categoriaEquipo">juvenil</field>
+            <field name="temporada">2026-2027</field>
+            <field name="maxJugadores">20</field>
+            <field name="entrenador_id" ref="demo_entrenador_1"/>
+        </record>
+        <record id="demo_equipo_2" model="ebro_football_academy.equipo">
+            <field name="nombreEquipo">Ebro Infantil B</field>
+            <field name="categoriaEquipo">infantil</field>
+            <field name="temporada">2026-2027</field>
+            <field name="maxJugadores">16</field>
+            <field name="entrenador_id" ref="demo_entrenador_2"/>
+        </record>
+
+        <!-- Jugadores -->
+        <record id="demo_jugador_1" model="ebro_football_academy.jugador">
+            <field name="nombreJugador">Pablo</field>
+            <field name="apellidoJugador">Navarro</field>
+            <field name="fecha_nacimiento">2008-03-14</field>
+            <field name="posicionJugador">delantero</field>
+            <field name="categoriaJugador">juvenil</field>
+            <field name="equipo_id" ref="demo_equipo_1"/>
+        </record>
+        <record id="demo_jugador_2" model="ebro_football_academy.jugador">
+            <field name="nombreJugador">Diego</field>
+            <field name="apellidoJugador">Ferrer</field>
+            <field name="fecha_nacimiento">2008-11-02</field>
+            <field name="posicionJugador">portero</field>
+            <field name="categoriaJugador">juvenil</field>
+            <field name="equipo_id" ref="demo_equipo_1"/>
+        </record>
+        <record id="demo_jugador_3" model="ebro_football_academy.jugador">
+            <field name="nombreJugador">Álvaro</field>
+            <field name="apellidoJugador">Lasheras</field>
+            <field name="fecha_nacimiento">2012-05-20</field>
+            <field name="posicionJugador">centrocampista</field>
+            <field name="categoriaJugador">infantil</field>
+            <field name="equipo_id" ref="demo_equipo_2"/>
+        </record>
+
+        <!-- Entrenamientos -->
+        <record id="demo_entrenamiento_1" model="ebro_football_academy.entrenamiento">
+            <field name="nombreEntrenamiento">Táctica ofensiva</field>
+            <field name="fechaEntrenamiento">2026-11-10</field>
+            <field name="fechaHoraInicio">2026-11-10 17:00:00</field>
+            <field name="duracionEntrenamiento">1.5</field>
+            <field name="entrenador_id" ref="demo_entrenador_1"/>
+            <field name="equipo_id" ref="demo_equipo_1"/>
+            <field name="instalacion_id" ref="demo_instalacion_1"/>
+            <!-- (6, 0, [...]) = esta es la lista de jugadores -->
+            <field name="jugador_ids" eval="[(6, 0, [ref('demo_jugador_1'), ref('demo_jugador_2')])]"/>
+        </record>
+        <record id="demo_entrenamiento_2" model="ebro_football_academy.entrenamiento">
+            <field name="nombreEntrenamiento">Técnica individual</field>
+            <field name="fechaEntrenamiento">2026-11-18</field>
+            <field name="fechaHoraInicio">2026-11-18 18:00:00</field>
+            <field name="duracionEntrenamiento">1.0</field>
+            <field name="entrenador_id" ref="demo_entrenador_2"/>
+            <field name="equipo_id" ref="demo_equipo_2"/>
+            <field name="instalacion_id" ref="demo_instalacion_2"/>
+            <field name="jugador_ids" eval="[(6, 0, [ref('demo_jugador_3')])]"/>
+        </record>
+    </data>
+</odoo>

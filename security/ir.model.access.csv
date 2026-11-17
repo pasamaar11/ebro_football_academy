@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_jugador_usuario,access.jugador.usuario,model_ebro_football_academy_jugador,base.group_user,1,1,1,1
+access_entrenador_usuario,access.entrenador.usuario,model_ebro_football_academy_entrenador,base.group_user,1,1,1,1
+access_entrenamiento_usuario,access.entrenamiento.usuario,model_ebro_football_academy_entrenamiento,base.group_user,1,1,1,1
+access_equipo_usuario,access.equipo.usuario,model_ebro_football_academy_equipo,base.group_user,1,1,1,1
+access_instalacion_usuario,access.instalacion.usuario,model_ebro_football_academy_instalacion,base.group_user,1,1,1,1

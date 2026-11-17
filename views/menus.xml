@@ -1,0 +1,25 @@
+<odoo>
+    <!-- Menú principal (el icono de la aplicación) -->
+    <menuitem id="menu_ebro_football_academy_root" name="Ebro Football Academy" />
+
+    <!-- Submenús. sequence = el orden en que salen -->
+    <menuitem id="menu_jugadores" name="Jugadores"
+        parent="menu_ebro_football_academy_root"
+        action="action_jugador" sequence="1" />
+
+    <menuitem id="menu_entrenadores" name="Entrenadores"
+        parent="menu_ebro_football_academy_root"
+        action="action_entrenador" sequence="2" />
+
+    <menuitem id="menu_entrenamientos" name="Entrenamientos"
+        parent="menu_ebro_football_academy_root"
+        action="action_entrenamiento" sequence="3" />
+
+    <menuitem id="menu_equipo" name="Equipos"
+        parent="menu_ebro_football_academy_root"
+        action="action_equipo" sequence="4" />
+
+    <menuitem id="menu_instalacion" name="Instalaciones"
+        parent="menu_ebro_football_academy_root"
+        action="action_instalacion" sequence="5" />
+</odoo>
